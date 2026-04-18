@@ -54,44 +54,14 @@ export default function AdminDashboard() {
       <h1 className="page-title">Admin Dashboard</h1>
 
       {/* Stats */}
-      <div className={styles['dashboard-stats']}>
-        <div className={styles['stat-card']}>
-          <div className={styles['stat-label']}>Total Applications</div>
-          <div className={styles['stat-value']}>{analytics?.total || 0}</div>
-        </div>
-        <div className={styles['stat-card']}>
-          <div className={styles['stat-label']}>Approved</div>
-          <div className={styles['stat-value']} style={{ color: 'var(--success)' }}>
-            {(analytics?.byStatus?.APPROVED || 0) + (analytics?.byStatus?.DISPATCHED || 0)}
-          </div>
-          <div className={styles['stat-sub']}>Approval rate: {analytics?.approvalRate || 0}%</div>
-        </div>
-        <div className={styles['stat-card']}>
-          <div className={styles['stat-label']}>Rejected</div>
-          <div className={styles['stat-value']} style={{ color: 'var(--danger)' }}>
-            {analytics?.byStatus?.REJECTED || 0}
-          </div>
-        </div>
-        <div className={styles['stat-card']}>
-          <div className={styles['stat-label']}>Pending Review</div>
-          <div className={styles['stat-value']} style={{ color: 'var(--warning)' }}>
-            {(analytics?.byStatus?.PENDING || 0) + (analytics?.byStatus?.UNDER_REVIEW || 0)}
-          </div>
-        </div>
-      </div>
+     
 
       <div className={styles['dashboard-grid']}>
         {/* Applications Table */}
         <div className="card">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
             <h2 style={{ fontSize: 18, fontWeight: 700 }}>Applications</h2>
-            <select className="form-select" style={{ width: 180 }} value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}>
-              <option value="">All Statuses</option>
-              <option value="PENDING">Pending</option>
-              <option value="APPROVED">Approved</option>
-              <option value="REJECTED">Rejected</option>
-              <option value="DISPATCHED">Dispatched</option>
-            </select>
+            
           </div>
 
           <div className="table-container">
@@ -130,25 +100,7 @@ export default function AdminDashboard() {
 
         </div>
 
-        {/* Chart */}
-        <div className="card">
-          <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 16 }}>Monthly Trend</h2>
-          {chartData.length > 0 ? (
-            <ResponsiveContainer width="100%" height={280}>
-              <BarChart data={chartData}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="month" fontSize={12} />
-                <YAxis fontSize={12} />
-                <Tooltip />
-                <Legend />
-                <Bar dataKey="Approved" fill="#059669" />
-                <Bar dataKey="Rejected" fill="#dc2626" />
-              </BarChart>
-            </ResponsiveContainer>
-          ) : (
-            <p style={{ color: 'var(--gray-500)', textAlign: 'center', padding: 40 }}>No data available</p>
-          )}
-        </div>
+        
       </div>
 
       {/* Review Modal */}
