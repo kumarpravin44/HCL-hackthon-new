@@ -1,0 +1,30 @@
+.apply-page {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.result-card {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.result-card h2 {
+  margin-bottom: 8px;
+}
+
+.result-card .result-details {
+  margin-top: 16px;
+  text-align: left;
+}
+
+.result-card .result-details p {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--gray-100);
+  font-size: 14px;
+}
+
+.result-card .result-details p strong {
+  color: var(--gray-600);
+}

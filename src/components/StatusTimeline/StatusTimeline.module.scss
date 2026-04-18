@@ -1,0 +1,60 @@
+.timeline {
+  position: relative;
+  padding-left: 32px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 11px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--gray-200);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -32px;
+  top: 4px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 3px solid var(--white);
+  box-shadow: var(--shadow);
+}
+
+.timeline-dot.pending { background: var(--warning); }
+.timeline-dot.under_review { background: var(--info); }
+.timeline-dot.approved { background: var(--success); }
+.timeline-dot.rejected { background: var(--danger); }
+.timeline-dot.dispatched { background: #7c3aed; }
+
+.timeline-content {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  padding: 12px 16px;
+}
+
+.timeline-status {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.timeline-comment {
+  color: var(--gray-500);
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.timeline-date {
+  color: var(--gray-400);
+  font-size: 12px;
+}
